@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/include/scara_inverse_kinematics/poseJoints.h
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/include/scara_inverse_kinematics/poseJoints.h
 ros/service_traits.h
 -
 scara_inverse_kinematics/poseJointsRequest.h
@@ -14,7 +14,7 @@ scara_inverse_kinematics/poseJointsRequest.h
 scara_inverse_kinematics/poseJointsResponse.h
 -
 
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/include/scara_inverse_kinematics/poseJointsRequest.h
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/include/scara_inverse_kinematics/poseJointsRequest.h
 string
 -
 vector
@@ -30,7 +30,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/include/scara_inverse_kinematics/poseJointsResponse.h
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/include/scara_inverse_kinematics/poseJointsResponse.h
 string
 -
 vector
@@ -46,11 +46,11 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/chris/rbe500_team2_pa1/catkin_ws/src/scara_robot/scara_inverse_kinematics/src/inverse_client.cpp
+/home/chris/rbe500_team2_pa2/catkin_ws/src/scara_robot/scara_inverse_kinematics/src/inverse_client.cpp
 ros/ros.h
-/home/chris/rbe500_team2_pa1/catkin_ws/src/scara_robot/scara_inverse_kinematics/src/ros/ros.h
+/home/chris/rbe500_team2_pa2/catkin_ws/src/scara_robot/scara_inverse_kinematics/src/ros/ros.h
 scara_inverse_kinematics/poseJoints.h
-/home/chris/rbe500_team2_pa1/catkin_ws/src/scara_robot/scara_inverse_kinematics/src/scara_inverse_kinematics/poseJoints.h
+/home/chris/rbe500_team2_pa2/catkin_ws/src/scara_robot/scara_inverse_kinematics/src/scara_inverse_kinematics/poseJoints.h
 cstdlib
 -
 

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/inverse_server.dir/src/inverse_server.cpp.o"
-  "/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server.pdb"
-  "/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server"
+  "/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server.pdb"
+  "/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server"
 )
 
 # Per-language clean rules from dependency scanning.

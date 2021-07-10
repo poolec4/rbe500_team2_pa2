@@ -1,0 +1,8 @@
+prefix=/home/chris/rbe500_team2_pa2/catkin_ws/install
+
+Name: pd_controller
+Description: Description of pd_controller
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chris/rbe500_team2_pa1/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/chris/rbe500_team2_pa2/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chris/rbe500_team2_pa1/catkin_ws/build
+CMAKE_BINARY_DIR = /home/chris/rbe500_team2_pa2/catkin_ws/build
 
 # Include any dependencies generated for this target.
 include scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/depend.make
@@ -58,17 +58,17 @@ include scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/progr
 include scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/flags.make
 
 scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/src/inverse_server.cpp.o: scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/flags.make
-scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/src/inverse_server.cpp.o: /home/chris/rbe500_team2_pa1/catkin_ws/src/scara_robot/scara_inverse_kinematics/src/inverse_server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/rbe500_team2_pa1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/src/inverse_server.cpp.o"
-	cd /home/chris/rbe500_team2_pa1/catkin_ws/build/scara_robot/scara_inverse_kinematics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/inverse_server.dir/src/inverse_server.cpp.o -c /home/chris/rbe500_team2_pa1/catkin_ws/src/scara_robot/scara_inverse_kinematics/src/inverse_server.cpp
+scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/src/inverse_server.cpp.o: /home/chris/rbe500_team2_pa2/catkin_ws/src/scara_robot/scara_inverse_kinematics/src/inverse_server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/rbe500_team2_pa2/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/src/inverse_server.cpp.o"
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build/scara_robot/scara_inverse_kinematics && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/inverse_server.dir/src/inverse_server.cpp.o -c /home/chris/rbe500_team2_pa2/catkin_ws/src/scara_robot/scara_inverse_kinematics/src/inverse_server.cpp
 
 scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/src/inverse_server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/inverse_server.dir/src/inverse_server.cpp.i"
-	cd /home/chris/rbe500_team2_pa1/catkin_ws/build/scara_robot/scara_inverse_kinematics && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/rbe500_team2_pa1/catkin_ws/src/scara_robot/scara_inverse_kinematics/src/inverse_server.cpp > CMakeFiles/inverse_server.dir/src/inverse_server.cpp.i
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build/scara_robot/scara_inverse_kinematics && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/rbe500_team2_pa2/catkin_ws/src/scara_robot/scara_inverse_kinematics/src/inverse_server.cpp > CMakeFiles/inverse_server.dir/src/inverse_server.cpp.i
 
 scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/src/inverse_server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inverse_server.dir/src/inverse_server.cpp.s"
-	cd /home/chris/rbe500_team2_pa1/catkin_ws/build/scara_robot/scara_inverse_kinematics && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/rbe500_team2_pa1/catkin_ws/src/scara_robot/scara_inverse_kinematics/src/inverse_server.cpp -o CMakeFiles/inverse_server.dir/src/inverse_server.cpp.s
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build/scara_robot/scara_inverse_kinematics && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/rbe500_team2_pa2/catkin_ws/src/scara_robot/scara_inverse_kinematics/src/inverse_server.cpp -o CMakeFiles/inverse_server.dir/src/inverse_server.cpp.s
 
 scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/src/inverse_server.cpp.o.requires:
 
@@ -88,32 +88,32 @@ inverse_server_OBJECTS = \
 # External object files for target inverse_server
 inverse_server_EXTERNAL_OBJECTS =
 
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/src/inverse_server.cpp.o
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/build.make
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/libroscpp.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/librosconsole.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/librosconsole_log4cxx.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/librosconsole_backend_interface.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/libxmlrpcpp.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/libroscpp_serialization.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/librostime.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/libcpp_common.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-/home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chris/rbe500_team2_pa1/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server"
-	cd /home/chris/rbe500_team2_pa1/catkin_ws/build/scara_robot/scara_inverse_kinematics && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/inverse_server.dir/link.txt --verbose=$(VERBOSE)
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/src/inverse_server.cpp.o
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/build.make
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/libroscpp.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/librosconsole.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/librosconsole_log4cxx.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/librosconsole_backend_interface.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/libxmlrpcpp.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/libroscpp_serialization.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/librostime.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /opt/ros/melodic/lib/libcpp_common.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+/home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server: scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chris/rbe500_team2_pa2/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server"
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build/scara_robot/scara_inverse_kinematics && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/inverse_server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/build: /home/chris/rbe500_team2_pa1/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server
+scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/build: /home/chris/rbe500_team2_pa2/catkin_ws/devel/lib/scara_inverse_kinematics/inverse_server
 
 .PHONY : scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/build
 
@@ -122,10 +122,10 @@ scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/requires: sca
 .PHONY : scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/requires
 
 scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/clean:
-	cd /home/chris/rbe500_team2_pa1/catkin_ws/build/scara_robot/scara_inverse_kinematics && $(CMAKE_COMMAND) -P CMakeFiles/inverse_server.dir/cmake_clean.cmake
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build/scara_robot/scara_inverse_kinematics && $(CMAKE_COMMAND) -P CMakeFiles/inverse_server.dir/cmake_clean.cmake
 .PHONY : scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/clean
 
 scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/depend:
-	cd /home/chris/rbe500_team2_pa1/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chris/rbe500_team2_pa1/catkin_ws/src /home/chris/rbe500_team2_pa1/catkin_ws/src/scara_robot/scara_inverse_kinematics /home/chris/rbe500_team2_pa1/catkin_ws/build /home/chris/rbe500_team2_pa1/catkin_ws/build/scara_robot/scara_inverse_kinematics /home/chris/rbe500_team2_pa1/catkin_ws/build/scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chris/rbe500_team2_pa2/catkin_ws/src /home/chris/rbe500_team2_pa2/catkin_ws/src/scara_robot/scara_inverse_kinematics /home/chris/rbe500_team2_pa2/catkin_ws/build /home/chris/rbe500_team2_pa2/catkin_ws/build/scara_robot/scara_inverse_kinematics /home/chris/rbe500_team2_pa2/catkin_ws/build/scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : scara_robot/scara_inverse_kinematics/CMakeFiles/inverse_server.dir/depend
 
