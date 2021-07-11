@@ -5,10 +5,8 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
-subdirs("scara_robot/gazebo_publish")
 subdirs("scara_robot/scara_description")
 subdirs("scara_robot/scara_gazebo")
 subdirs("scara_robot/scara_inverse_kinematics")
-subdirs("scara_robot/pd_controller")
 subdirs("scara_robot/scara_forward_kinematics")
 subdirs("scara_robot/scara_pd_controller")

@@ -24,27 +24,17 @@ struct JointControlReferenceResponse_
   typedef JointControlReferenceResponse_<ContainerAllocator> Type;
 
   JointControlReferenceResponse_()
-    : theta1(0.0)
-    , theta2(0.0)
-    , d3(0.0)  {
+    : f_d3(0.0)  {
     }
   JointControlReferenceResponse_(const ContainerAllocator& _alloc)
-    : theta1(0.0)
-    , theta2(0.0)
-    , d3(0.0)  {
+    : f_d3(0.0)  {
   (void)_alloc;
     }
 
 
 
-   typedef double _theta1_type;
-  _theta1_type theta1;
-
-   typedef double _theta2_type;
-  _theta2_type theta2;
-
-   typedef double _d3_type;
-  _d3_type d3;
+   typedef double _f_d3_type;
+  _f_d3_type f_d3;
 
 
 
@@ -75,9 +65,7 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::scara_pd_controller::JointControlReferenceResponse_<ContainerAllocator1> & lhs, const ::scara_pd_controller::JointControlReferenceResponse_<ContainerAllocator2> & rhs)
 {
-  return lhs.theta1 == rhs.theta1 &&
-    lhs.theta2 == rhs.theta2 &&
-    lhs.d3 == rhs.d3;
+  return lhs.f_d3 == rhs.f_d3;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -134,12 +122,12 @@ struct MD5Sum< ::scara_pd_controller::JointControlReferenceResponse_<ContainerAl
 {
   static const char* value()
   {
-    return "9890b1bf53393af30e276affd5468a4b";
+    return "2b0321939446cfc985f2fafeb642d8a2";
   }
 
   static const char* value(const ::scara_pd_controller::JointControlReferenceResponse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x9890b1bf53393af3ULL;
-  static const uint64_t static_value2 = 0x0e276affd5468a4bULL;
+  static const uint64_t static_value1 = 0x2b0321939446cfc9ULL;
+  static const uint64_t static_value2 = 0x85f2fafeb642d8a2ULL;
 };
 
 template<class ContainerAllocator>
@@ -158,9 +146,7 @@ struct Definition< ::scara_pd_controller::JointControlReferenceResponse_<Contain
 {
   static const char* value()
   {
-    return "float64 theta1\n"
-"float64 theta2\n"
-"float64 d3\n"
+    return "float64 f_d3\n"
 "\n"
 ;
   }
@@ -180,9 +166,7 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.theta1);
-      stream.next(m.theta2);
-      stream.next(m.d3);
+      stream.next(m.f_d3);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -201,12 +185,8 @@ struct Printer< ::scara_pd_controller::JointControlReferenceResponse_<ContainerA
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::scara_pd_controller::JointControlReferenceResponse_<ContainerAllocator>& v)
   {
-    s << indent << "theta1: ";
-    Printer<double>::stream(s, indent + "  ", v.theta1);
-    s << indent << "theta2: ";
-    Printer<double>::stream(s, indent + "  ", v.theta2);
-    s << indent << "d3: ";
-    Printer<double>::stream(s, indent + "  ", v.d3);
+    s << indent << "f_d3: ";
+    Printer<double>::stream(s, indent + "  ", v.f_d3);
   }
 };
 

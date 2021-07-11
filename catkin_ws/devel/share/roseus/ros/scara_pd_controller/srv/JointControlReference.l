@@ -20,118 +20,74 @@
 
 (defclass scara_pd_controller::JointControlReferenceRequest
   :super ros::object
-  :slots (_x _y _z ))
+  :slots (_d3_des ))
 
 (defmethod scara_pd_controller::JointControlReferenceRequest
   (:init
    (&key
-    ((:x __x) 0.0)
-    ((:y __y) 0.0)
-    ((:z __z) 0.0)
+    ((:d3_des __d3_des) 0.0)
     )
    (send-super :init)
-   (setq _x (float __x))
-   (setq _y (float __y))
-   (setq _z (float __z))
+   (setq _d3_des (float __d3_des))
    self)
-  (:x
-   (&optional __x)
-   (if __x (setq _x __x)) _x)
-  (:y
-   (&optional __y)
-   (if __y (setq _y __y)) _y)
-  (:z
-   (&optional __z)
-   (if __z (setq _z __z)) _z)
+  (:d3_des
+   (&optional __d3_des)
+   (if __d3_des (setq _d3_des __d3_des)) _d3_des)
   (:serialization-length
    ()
    (+
-    ;; float64 _x
-    8
-    ;; float64 _y
-    8
-    ;; float64 _z
+    ;; float64 _d3_des
     8
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; float64 _x
-       (sys::poke _x (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _y
-       (sys::poke _y (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _z
-       (sys::poke _z (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _d3_des
+       (sys::poke _d3_des (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; float64 _x
-     (setq _x (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _y
-     (setq _y (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _z
-     (setq _z (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _d3_des
+     (setq _d3_des (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;;
    self)
   )
 
 (defclass scara_pd_controller::JointControlReferenceResponse
   :super ros::object
-  :slots (_theta1 _theta2 _d3 ))
+  :slots (_f_d3 ))
 
 (defmethod scara_pd_controller::JointControlReferenceResponse
   (:init
    (&key
-    ((:theta1 __theta1) 0.0)
-    ((:theta2 __theta2) 0.0)
-    ((:d3 __d3) 0.0)
+    ((:f_d3 __f_d3) 0.0)
     )
    (send-super :init)
-   (setq _theta1 (float __theta1))
-   (setq _theta2 (float __theta2))
-   (setq _d3 (float __d3))
+   (setq _f_d3 (float __f_d3))
    self)
-  (:theta1
-   (&optional __theta1)
-   (if __theta1 (setq _theta1 __theta1)) _theta1)
-  (:theta2
-   (&optional __theta2)
-   (if __theta2 (setq _theta2 __theta2)) _theta2)
-  (:d3
-   (&optional __d3)
-   (if __d3 (setq _d3 __d3)) _d3)
+  (:f_d3
+   (&optional __f_d3)
+   (if __f_d3 (setq _f_d3 __f_d3)) _f_d3)
   (:serialization-length
    ()
    (+
-    ;; float64 _theta1
-    8
-    ;; float64 _theta2
-    8
-    ;; float64 _d3
+    ;; float64 _f_d3
     8
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; float64 _theta1
-       (sys::poke _theta1 (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _theta2
-       (sys::poke _theta2 (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _d3
-       (sys::poke _d3 (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _f_d3
+       (sys::poke _f_d3 (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; float64 _theta1
-     (setq _theta1 (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _theta2
-     (setq _theta2 (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _d3
-     (setq _d3 (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _f_d3
+     (setq _f_d3 (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;;
    self)
   )
@@ -140,7 +96,7 @@
   :super ros::object
   :slots ())
 
-(setf (get scara_pd_controller::JointControlReference :md5sum-) "cabb4d8365c1affb33eb07e1622932fc")
+(setf (get scara_pd_controller::JointControlReference :md5sum-) "deb289886d655a183ad8c240ad109d63")
 (setf (get scara_pd_controller::JointControlReference :datatype-) "scara_pd_controller/JointControlReference")
 (setf (get scara_pd_controller::JointControlReference :request) scara_pd_controller::JointControlReferenceRequest)
 (setf (get scara_pd_controller::JointControlReference :response) scara_pd_controller::JointControlReferenceResponse)
@@ -148,34 +104,26 @@
 (defmethod scara_pd_controller::JointControlReferenceRequest
   (:response () (instance scara_pd_controller::JointControlReferenceResponse :init)))
 
-(setf (get scara_pd_controller::JointControlReferenceRequest :md5sum-) "cabb4d8365c1affb33eb07e1622932fc")
+(setf (get scara_pd_controller::JointControlReferenceRequest :md5sum-) "deb289886d655a183ad8c240ad109d63")
 (setf (get scara_pd_controller::JointControlReferenceRequest :datatype-) "scara_pd_controller/JointControlReferenceRequest")
 (setf (get scara_pd_controller::JointControlReferenceRequest :definition-)
-      "float64 x
-float64 y
-float64 z
+      "float64 d3_des
 ---
-float64 theta1
-float64 theta2
-float64 d3
+float64 f_d3
 
 ")
 
-(setf (get scara_pd_controller::JointControlReferenceResponse :md5sum-) "cabb4d8365c1affb33eb07e1622932fc")
+(setf (get scara_pd_controller::JointControlReferenceResponse :md5sum-) "deb289886d655a183ad8c240ad109d63")
 (setf (get scara_pd_controller::JointControlReferenceResponse :datatype-) "scara_pd_controller/JointControlReferenceResponse")
 (setf (get scara_pd_controller::JointControlReferenceResponse :definition-)
-      "float64 x
-float64 y
-float64 z
+      "float64 d3_des
 ---
-float64 theta1
-float64 theta2
-float64 d3
+float64 f_d3
 
 ")
 
 
 
-(provide :scara_pd_controller/JointControlReference "cabb4d8365c1affb33eb07e1622932fc")
+(provide :scara_pd_controller/JointControlReference "deb289886d655a183ad8c240ad109d63")
 
 

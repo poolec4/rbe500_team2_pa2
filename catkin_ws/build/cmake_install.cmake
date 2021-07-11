@@ -131,11 +131,9 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/chris/rbe500_team2_pa2/catkin_ws/build/gtest/cmake_install.cmake")
-  include("/home/chris/rbe500_team2_pa2/catkin_ws/build/scara_robot/gazebo_publish/cmake_install.cmake")
   include("/home/chris/rbe500_team2_pa2/catkin_ws/build/scara_robot/scara_description/cmake_install.cmake")
   include("/home/chris/rbe500_team2_pa2/catkin_ws/build/scara_robot/scara_gazebo/cmake_install.cmake")
   include("/home/chris/rbe500_team2_pa2/catkin_ws/build/scara_robot/scara_inverse_kinematics/cmake_install.cmake")
-  include("/home/chris/rbe500_team2_pa2/catkin_ws/build/scara_robot/pd_controller/cmake_install.cmake")
   include("/home/chris/rbe500_team2_pa2/catkin_ws/build/scara_robot/scara_forward_kinematics/cmake_install.cmake")
   include("/home/chris/rbe500_team2_pa2/catkin_ws/build/scara_robot/scara_pd_controller/cmake_install.cmake")
 

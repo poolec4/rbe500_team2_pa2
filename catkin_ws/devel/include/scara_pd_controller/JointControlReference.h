@@ -40,7 +40,7 @@ template<>
 struct MD5Sum< ::scara_pd_controller::JointControlReference > {
   static const char* value()
   {
-    return "cabb4d8365c1affb33eb07e1622932fc";
+    return "deb289886d655a183ad8c240ad109d63";
   }
 
   static const char* value(const ::scara_pd_controller::JointControlReference&) { return value(); }

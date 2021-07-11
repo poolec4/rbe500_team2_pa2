@@ -13,6 +13,7 @@ from tf.transformations import euler_from_quaternion
 
 from sensor_msgs.msg import JointState
 from gazebo_msgs.srv import ApplyJointEffort
+from gazebo_msgs.srv import GetJointProperties
 from scara_pd_controller.srv import JointControlReference
 
 debug = True
@@ -22,6 +23,9 @@ l1 = 2
 l2 = 1 
 
 d3_des = 0
+
+kp = 1;
+kd = 1;
 
 def rot_to_euler(R): # converts a 3x3 rotation matrix to ZYZ Euler angles
 	phi = math.atan2(R[1,2],R[0,2])
@@ -34,7 +38,7 @@ def rot_to_euler(R): # converts a 3x3 rotation matrix to ZYZ Euler angles
 	
 	return eangles
 
-def pd_control(pos_cur, pos_des, kp, kd):
+def pd_control(joint, pos_cur, pos_des, kp, kd):
 
 	# add in controller equation here
 	f = 0
@@ -43,22 +47,23 @@ def pd_control(pos_cur, pos_des, kp, kd):
 	if debug == True:
 		print("\nSending joint force f = %f]" % (f)) # printing calculated values to terminal
 
-	je_service = rospy.ServiceProxy('/gazebo_msgs/ApplyJointEffort', ApplyJointEffort) # initialize subscriber under /scara_robot/joint_states topic name, JointState as the message, and the service_handle function
-	je_service(f)
+	je_service = rospy.ServiceProxy('/gazebo_msgs/apply_joint_effort', ApplyJointEffort) # initialize subscriber under /scara_robot/joint_states topic name, JointState as the message, and the service_handle function
+	je_service(joint, f)
 
 	return f
 
-def callback(data):
-	th1 = data.position[0] # extract message data
-	th2 = data.position[1]
-	d3 = data.position[2]
+def request_joint_status(joint):
+	joint_stauts = rospy.ServiceProxy('/gazebo/get_joint_properties', GetJointProperties)
+	resp = joint_stauts(joint)
+
+	d3 = resp.position[0]
 
 	if debug == True:
-		print("\n\nReceived joint parameters: [%f, %f, %f] (th1,th2,d3) (radians, meters)" % (th1,th2,d3)) # printing received data to terminal
+		print("\n\nReceived joint position: [%f] (d3) (meters)" % (d3)) # printing received data to terminal
 
-	q = np.array([th1,th2,d3]) # combine joint configurations into array (radians, meters) 
+	pd_control('joint5', d3, d3_des, kp, kd)
 
-	pd_control(d3, d3_des, kp, kd)
+	return resp
 
 def service_handle(data):
 	d3_des = data.d3_des
@@ -75,10 +80,13 @@ def service_handle(data):
 
 def server(): # function that loops continuously waiting for incoming messages
     rospy.init_node('pd_control_svr') # initialize node
-    rospy.Subscriber('/scara/joint_states', JointState, callback) # initialize subscriber under /scara_robot/joint_states topic name, JointState as the message, and the callback function
+    
     ref_service = rospy.Service('/scara/JointControlReference', JointControlReference, service_handle)
 
-    rospy.spin() # keep node running
+    r = rospy.Rate(10) # 10hz
+    while not rospy.is_shutdown():
+    	request_joint_status('joint5')
+    	r.sleep()
 
 if __name__ == '__main__': # run only if entry point to program (i.e. running from command line)
 	server() # invoke server loop

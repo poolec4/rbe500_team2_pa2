@@ -68,28 +68,15 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
+.PHONY : list_install_components/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -114,6 +101,29 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -124,16 +134,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,6 +168,81 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_nodejs.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_nodejs.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+scara_pd_controller_generate_messages_nodejs: scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_nodejs.dir/rule
+
+.PHONY : scara_pd_controller_generate_messages_nodejs
+
+# fast build rule for target.
+scara_pd_controller_generate_messages_nodejs/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_nodejs.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_nodejs.dir/build
+.PHONY : scara_pd_controller_generate_messages_nodejs/fast
+
+# Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genlisp.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genlisp.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genlisp.dir/rule
+
+# Convenience name for target.
+scara_pd_controller_genlisp: scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genlisp.dir/rule
+
+.PHONY : scara_pd_controller_genlisp
+
+# fast build rule for target.
+scara_pd_controller_genlisp/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genlisp.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genlisp.dir/build
+.PHONY : scara_pd_controller_genlisp/fast
+
+# Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genpy.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genpy.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genpy.dir/rule
+
+# Convenience name for target.
+scara_pd_controller_genpy: scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genpy.dir/rule
+
+.PHONY : scara_pd_controller_genpy
+
+# fast build rule for target.
+scara_pd_controller_genpy/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genpy.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genpy.dir/build
+.PHONY : scara_pd_controller_genpy/fast
+
+# Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_gennodejs.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_gennodejs.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_gennodejs.dir/rule
+
+# Convenience name for target.
+scara_pd_controller_gennodejs: scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_gennodejs.dir/rule
+
+.PHONY : scara_pd_controller_gennodejs
+
+# fast build rule for target.
+scara_pd_controller_gennodejs/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_gennodejs.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_gennodejs.dir/build
+.PHONY : scara_pd_controller_gennodejs/fast
+
+# Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_lisp.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_lisp.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+scara_pd_controller_generate_messages_lisp: scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_lisp.dir/rule
+
+.PHONY : scara_pd_controller_generate_messages_lisp
+
+# fast build rule for target.
+scara_pd_controller_generate_messages_lisp/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_lisp.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_lisp.dir/build
+.PHONY : scara_pd_controller_generate_messages_lisp/fast
+
+# Convenience name for target.
 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_geneus.dir/rule:
 	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_geneus.dir/rule
 .PHONY : scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_geneus.dir/rule
@@ -196,21 +271,6 @@ scara_pd_controller_generate_messages_eus: scara_robot/scara_pd_controller/CMake
 scara_pd_controller_generate_messages_eus/fast:
 	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_eus.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_eus.dir/build
 .PHONY : scara_pd_controller_generate_messages_eus/fast
-
-# Convenience name for target.
-scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages.dir/rule:
-	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages.dir/rule
-.PHONY : scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages.dir/rule
-
-# Convenience name for target.
-scara_pd_controller_generate_messages: scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages.dir/rule
-
-.PHONY : scara_pd_controller_generate_messages
-
-# fast build rule for target.
-scara_pd_controller_generate_messages/fast:
-	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages.dir/build
-.PHONY : scara_pd_controller_generate_messages/fast
 
 # Convenience name for target.
 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_cpp.dir/rule:
@@ -243,34 +303,139 @@ _scara_pd_controller_generate_messages_check_deps_JointControlReference/fast:
 .PHONY : _scara_pd_controller_generate_messages_check_deps_JointControlReference/fast
 
 # Convenience name for target.
-scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genlisp.dir/rule:
-	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genlisp.dir/rule
-.PHONY : scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genlisp.dir/rule
+scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-scara_pd_controller_genlisp: scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genlisp.dir/rule
+trajectory_msgs_generate_messages_cpp: scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
 
-.PHONY : scara_pd_controller_genlisp
+.PHONY : trajectory_msgs_generate_messages_cpp
 
 # fast build rule for target.
-scara_pd_controller_genlisp/fast:
-	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genlisp.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genlisp.dir/build
-.PHONY : scara_pd_controller_genlisp/fast
+trajectory_msgs_generate_messages_cpp/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
+.PHONY : trajectory_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
-scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_nodejs.dir/rule:
-	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_nodejs.dir/rule
-.PHONY : scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_nodejs.dir/rule
+scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-scara_pd_controller_generate_messages_nodejs: scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_nodejs.dir/rule
+trajectory_msgs_generate_messages_eus: scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
 
-.PHONY : scara_pd_controller_generate_messages_nodejs
+.PHONY : trajectory_msgs_generate_messages_eus
 
 # fast build rule for target.
-scara_pd_controller_generate_messages_nodejs/fast:
-	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_nodejs.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_nodejs.dir/build
-.PHONY : scara_pd_controller_generate_messages_nodejs/fast
+trajectory_msgs_generate_messages_eus/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
+.PHONY : trajectory_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages.dir/rule
+
+# Convenience name for target.
+scara_pd_controller_generate_messages: scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages.dir/rule
+
+.PHONY : scara_pd_controller_generate_messages
+
+# fast build rule for target.
+scara_pd_controller_generate_messages/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages.dir/build
+.PHONY : scara_pd_controller_generate_messages/fast
+
+# Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+gazebo_msgs_generate_messages_py: scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule
+
+.PHONY : gazebo_msgs_generate_messages_py
+
+# fast build rule for target.
+gazebo_msgs_generate_messages_py/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build
+.PHONY : gazebo_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+gazebo_msgs_generate_messages_lisp: scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : gazebo_msgs_generate_messages_lisp
+
+# fast build rule for target.
+gazebo_msgs_generate_messages_lisp/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build
+.PHONY : gazebo_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+gazebo_msgs_generate_messages_nodejs: scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : gazebo_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+gazebo_msgs_generate_messages_nodejs/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build
+.PHONY : gazebo_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_lisp: scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_lisp
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_lisp/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
+.PHONY : trajectory_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_py: scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_py
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_py/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
+.PHONY : trajectory_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+gazebo_msgs_generate_messages_eus: scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule
+
+.PHONY : gazebo_msgs_generate_messages_eus
+
+# fast build rule for target.
+gazebo_msgs_generate_messages_eus/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build
+.PHONY : gazebo_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_py.dir/rule:
@@ -288,6 +453,36 @@ scara_pd_controller_generate_messages_py/fast:
 .PHONY : scara_pd_controller_generate_messages_py/fast
 
 # Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+trajectory_msgs_generate_messages_nodejs: scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : trajectory_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+trajectory_msgs_generate_messages_nodejs/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
+.PHONY : trajectory_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_cpp: scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+
+.PHONY : std_srvs_generate_messages_cpp
+
+# fast build rule for target.
+std_srvs_generate_messages_cpp/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
+.PHONY : std_srvs_generate_messages_cpp/fast
+
+# Convenience name for target.
 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_gencpp.dir/rule:
 	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_gencpp.dir/rule
 .PHONY : scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_gencpp.dir/rule
@@ -303,49 +498,79 @@ scara_pd_controller_gencpp/fast:
 .PHONY : scara_pd_controller_gencpp/fast
 
 # Convenience name for target.
-scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_lisp.dir/rule:
-	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_lisp.dir/rule
-.PHONY : scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_lisp.dir/rule
+scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_eus.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-scara_pd_controller_generate_messages_lisp: scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_lisp.dir/rule
+std_srvs_generate_messages_eus: scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
 
-.PHONY : scara_pd_controller_generate_messages_lisp
+.PHONY : std_srvs_generate_messages_eus
 
 # fast build rule for target.
-scara_pd_controller_generate_messages_lisp/fast:
-	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_lisp.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_generate_messages_lisp.dir/build
-.PHONY : scara_pd_controller_generate_messages_lisp/fast
+std_srvs_generate_messages_eus/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_eus.dir/build
+.PHONY : std_srvs_generate_messages_eus/fast
 
 # Convenience name for target.
-scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_gennodejs.dir/rule:
-	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_gennodejs.dir/rule
-.PHONY : scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_gennodejs.dir/rule
+scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-scara_pd_controller_gennodejs: scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_gennodejs.dir/rule
+std_srvs_generate_messages_lisp: scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
 
-.PHONY : scara_pd_controller_gennodejs
+.PHONY : std_srvs_generate_messages_lisp
 
 # fast build rule for target.
-scara_pd_controller_gennodejs/fast:
-	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_gennodejs.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_gennodejs.dir/build
-.PHONY : scara_pd_controller_gennodejs/fast
+std_srvs_generate_messages_lisp/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
+.PHONY : std_srvs_generate_messages_lisp/fast
 
 # Convenience name for target.
-scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genpy.dir/rule:
-	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genpy.dir/rule
-.PHONY : scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genpy.dir/rule
+scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-scara_pd_controller_genpy: scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genpy.dir/rule
+gazebo_msgs_generate_messages_cpp: scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule
 
-.PHONY : scara_pd_controller_genpy
+.PHONY : gazebo_msgs_generate_messages_cpp
 
 # fast build rule for target.
-scara_pd_controller_genpy/fast:
-	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genpy.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/scara_pd_controller_genpy.dir/build
-.PHONY : scara_pd_controller_genpy/fast
+gazebo_msgs_generate_messages_cpp/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build
+.PHONY : gazebo_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_nodejs: scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
+
+.PHONY : std_srvs_generate_messages_nodejs
+
+# fast build rule for target.
+std_srvs_generate_messages_nodejs/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
+.PHONY : std_srvs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+.PHONY : scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+std_srvs_generate_messages_py: scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+
+.PHONY : std_srvs_generate_messages_py
+
+# fast build rule for target.
+std_srvs_generate_messages_py/fast:
+	cd /home/chris/rbe500_team2_pa2/catkin_ws/build && $(MAKE) -f scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_py.dir/build.make scara_robot/scara_pd_controller/CMakeFiles/std_srvs_generate_messages_py.dir/build
+.PHONY : std_srvs_generate_messages_py/fast
 
 # Help Target
 help:
@@ -354,24 +579,39 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/local"
-	@echo "... install"
-	@echo "... scara_pd_controller_geneus"
-	@echo "... edit_cache"
-	@echo "... scara_pd_controller_generate_messages_eus"
-	@echo "... scara_pd_controller_generate_messages"
-	@echo "... scara_pd_controller_generate_messages_cpp"
-	@echo "... _scara_pd_controller_generate_messages_check_deps_JointControlReference"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... scara_pd_controller_generate_messages_nodejs"
 	@echo "... install/strip"
 	@echo "... scara_pd_controller_genlisp"
-	@echo "... scara_pd_controller_generate_messages_nodejs"
-	@echo "... scara_pd_controller_generate_messages_py"
-	@echo "... scara_pd_controller_gencpp"
-	@echo "... test"
-	@echo "... scara_pd_controller_generate_messages_lisp"
-	@echo "... scara_pd_controller_gennodejs"
 	@echo "... scara_pd_controller_genpy"
-	@echo "... list_install_components"
+	@echo "... scara_pd_controller_gennodejs"
+	@echo "... scara_pd_controller_generate_messages_lisp"
+	@echo "... edit_cache"
+	@echo "... scara_pd_controller_geneus"
+	@echo "... scara_pd_controller_generate_messages_eus"
+	@echo "... scara_pd_controller_generate_messages_cpp"
+	@echo "... _scara_pd_controller_generate_messages_check_deps_JointControlReference"
+	@echo "... trajectory_msgs_generate_messages_cpp"
+	@echo "... trajectory_msgs_generate_messages_eus"
+	@echo "... scara_pd_controller_generate_messages"
+	@echo "... gazebo_msgs_generate_messages_py"
+	@echo "... gazebo_msgs_generate_messages_lisp"
+	@echo "... gazebo_msgs_generate_messages_nodejs"
+	@echo "... trajectory_msgs_generate_messages_lisp"
+	@echo "... trajectory_msgs_generate_messages_py"
+	@echo "... gazebo_msgs_generate_messages_eus"
+	@echo "... scara_pd_controller_generate_messages_py"
+	@echo "... trajectory_msgs_generate_messages_nodejs"
+	@echo "... install"
+	@echo "... std_srvs_generate_messages_cpp"
+	@echo "... test"
+	@echo "... scara_pd_controller_gencpp"
+	@echo "... std_srvs_generate_messages_eus"
+	@echo "... std_srvs_generate_messages_lisp"
+	@echo "... gazebo_msgs_generate_messages_cpp"
+	@echo "... std_srvs_generate_messages_nodejs"
+	@echo "... std_srvs_generate_messages_py"
 .PHONY : help
 
 
