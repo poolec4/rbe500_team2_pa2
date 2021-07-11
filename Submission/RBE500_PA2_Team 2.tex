@@ -70,6 +70,29 @@
 		
 	\end{itemize}
 
+	We need to start by determining the E.O.M. of our third link for our controller:
+	
+	\begin{minipage}[h]{0.3\textwidth}
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/mass_damper.png}
+	\end{minipage}
+	\begin{minipage}[h]{0.5\textwidth}
+		\begin{align*}
+			&\sum{F} = m a \Rightarrow F - b \dot{x} - F_w = m \ddot{x} \\
+			&m \ddot{x} + b \dot{x} + F_w = F \\
+			&H(s) = \frac{X(s)}{F(s)} = \frac{1}{m s^2 + b s + F_w}
+		\end{align*}
+	\end{minipage}
+
+	Steps to run:
+	
+	\begin{enumerate}
+		\item \texttt{catkin\_make}
+		\item \texttt{source devel/setup.bash}
+		\item \texttt{roslaunch scara\_gazebo scara\_world.launch}
+		
+	\end{enumerate}
+
 \end{enumerate}
 \end{document}
 

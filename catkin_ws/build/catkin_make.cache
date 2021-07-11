@@ -1,2 +1,2 @@
-scara_robot/gazebo_publish:scara_robot/pd_controller:scara_robot/scara_description:scara_robot/scara_forward_kinematics:scara_robot/scara_gazebo:scara_robot/scara_inverse_kinematics
+scara_robot/gazebo_publish:scara_robot/pd_controller:scara_robot/scara_description:scara_robot/scara_forward_kinematics:scara_robot/scara_gazebo:scara_robot/scara_inverse_kinematics:scara_robot/scara_pd_controller
 -DCATKIN_DEVEL_PREFIX=/home/chris/rbe500_team2_pa2/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/chris/rbe500_team2_pa2/catkin_ws/install -G Unix Makefiles
