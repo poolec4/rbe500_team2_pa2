@@ -11,7 +11,6 @@ import numpy as np # numpy library for arrays and matrices
 
 from tf.transformations import euler_from_quaternion
 
-from sensor_msgs.msg import JointState
 from gazebo_msgs.srv import ApplyJointEffort
 from gazebo_msgs.srv import GetJointProperties
 from scara_pd_controller.srv import JointControlReference
@@ -24,8 +23,10 @@ l2 = 1
 
 d3_des = 0
 
-kp = 1;
-kd = 1;
+kp = 1
+kd = 1
+
+rate = 10
 
 def rot_to_euler(R): # converts a 3x3 rotation matrix to ZYZ Euler angles
 	phi = math.atan2(R[1,2],R[0,2])
@@ -41,14 +42,17 @@ def rot_to_euler(R): # converts a 3x3 rotation matrix to ZYZ Euler angles
 def pd_control(joint, pos_cur, pos_des, kp, kd):
 
 	# add in controller equation here
-	f = 0
+	f = -500
 	# ***
 
 	if debug == True:
-		print("\nSending joint force f = %f]" % (f)) # printing calculated values to terminal
+		print("\nSending joint force f = [%f]" % (f)) # printing calculated values to terminal
 
-	je_service = rospy.ServiceProxy('/gazebo_msgs/apply_joint_effort', ApplyJointEffort) # initialize subscriber under /scara_robot/joint_states topic name, JointState as the message, and the service_handle function
-	je_service(joint, f)
+	je_service = rospy.ServiceProxy('/gazebo/apply_joint_effort', ApplyJointEffort)
+	zero_time = rospy.Time()
+	#tick = rospy.Duration(0, ((1/10)*10**9))
+	tick = rospy.Duration(5, 0)
+	je_service(joint, f, zero_time, tick)
 
 	return f
 
@@ -83,7 +87,7 @@ def server(): # function that loops continuously waiting for incoming messages
     
     ref_service = rospy.Service('/scara/JointControlReference', JointControlReference, service_handle)
 
-    r = rospy.Rate(10) # 10hz
+    r = rospy.Rate(rate) # 10hz
     while not rospy.is_shutdown():
     	request_joint_status('joint5')
     	r.sleep()
