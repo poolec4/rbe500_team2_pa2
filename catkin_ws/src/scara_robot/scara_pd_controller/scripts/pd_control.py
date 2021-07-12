@@ -17,16 +17,14 @@ from scara_pd_controller.srv import JointControlReference
 
 debug = True
 
-d1 = 3.5
-l1 = 2 
-l2 = 1 
+d3 = 0.0
+d3_des = 0.0
+d3_old = 0.0
 
-d3_des = 0
+kp = 1100.0
+kd = 35.0
 
-kp = 1
-kd = 1
-
-rate = 10
+rate = 200.0
 
 def rot_to_euler(R): # converts a 3x3 rotation matrix to ZYZ Euler angles
 	phi = math.atan2(R[1,2],R[0,2])
@@ -39,37 +37,45 @@ def rot_to_euler(R): # converts a 3x3 rotation matrix to ZYZ Euler angles
 	
 	return eangles
 
-def pd_control(joint, pos_cur, pos_des, kp, kd):
+def pd_control(joint, pos_cur, pos_old, pos_des, kp, kd):
 
-	# add in controller equation here
-	f = -500
-	# ***
+	p_err = pos_des - pos_cur
+	d_err = (pos_old - pos_cur)*rate
+	f = -(kp*p_err + kd*d_err)
 
 	if debug == True:
+		print("\np_err = %f,  d_err = %f" % (p_err, d_err))
+		print("\npos_cur = %f, pos_old = %f" % (pos_cur, pos_old))
 		print("\nSending joint force f = [%f]" % (f)) # printing calculated values to terminal
 
 	je_service = rospy.ServiceProxy('/gazebo/apply_joint_effort', ApplyJointEffort)
 	zero_time = rospy.Time()
-	#tick = rospy.Duration(0, ((1/10)*10**9))
-	tick = rospy.Duration(5, 0)
+	tick = rospy.Duration(0, int((1/rate)*10**9))
 	je_service(joint, f, zero_time, tick)
 
 	return f
 
 def request_joint_status(joint):
+	global d3
+	global d3_old
+
 	joint_stauts = rospy.ServiceProxy('/gazebo/get_joint_properties', GetJointProperties)
 	resp = joint_stauts(joint)
-
-	d3 = resp.position[0]
+	
+	d3 = -resp.position[0]
 
 	if debug == True:
 		print("\n\nReceived joint position: [%f] (d3) (meters)" % (d3)) # printing received data to terminal
 
-	pd_control('joint5', d3, d3_des, kp, kd)
+	pd_control('joint5', d3, d3_old, d3_des, kp, kd)
+	
+	d3_old = d3
 
 	return resp
 
 def service_handle(data):
+	global d3_des
+
 	d3_des = data.d3_des
 
 	if debug == True:
