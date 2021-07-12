@@ -13,8 +13,9 @@ f = data(:,3);
 figure
 hold on
 grid on
-title('PD Controll')
-xlabel('$x$','Interpreter','LaTex')
-ylabel('$y$','Interpreter','LaTex')
+title('Link 3 Pd Controller')
+xlabel('$t (sec)$','Interpreter','LaTex')
+ylabel('$d_3$','Interpreter','LaTex')
 plot(t,pos_des, 'r')
 plot(t,pos_cur, 'b')
+legend('Reference Position', 'Current Position', 'Location', 'northeast')

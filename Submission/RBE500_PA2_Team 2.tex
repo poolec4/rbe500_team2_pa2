@@ -192,6 +192,16 @@ def service_handle(data):
 	\end{align*}
 	
 	These gains were determined experimentally by observing the overshoot and reaction of the link.
+	\\
+	
+	To show the effect of having the derivative term in our controller, we can also show the link's response with a proportional only controller ($k_d = 0$):
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.75\textwidth]{figures/link_3_p_plot1.png}
+	\end{figure}
+
+	It is apparent that there is a large amount of oscillations about the reference positions. The derivative term helps dampen this greatly.
 
 \end{enumerate}
 \end{document}

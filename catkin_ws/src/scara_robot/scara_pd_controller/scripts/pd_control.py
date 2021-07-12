@@ -18,7 +18,7 @@ from scara_pd_controller.srv import JointControlReference
 debug = True
 print_to_file = True
 
-file1 = open("pd_control_plot.txt","w")
+file1 = open("p_control_plot.txt","w")
 
 d3 = 0.0
 d3_des = 0.0
