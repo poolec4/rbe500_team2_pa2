@@ -92,22 +92,22 @@ class JointControlReferenceResponse {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.f_d3 = null;
+      this.success = null;
     }
     else {
-      if (initObj.hasOwnProperty('f_d3')) {
-        this.f_d3 = initObj.f_d3
+      if (initObj.hasOwnProperty('success')) {
+        this.success = initObj.success
       }
       else {
-        this.f_d3 = 0.0;
+        this.success = 0.0;
       }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type JointControlReferenceResponse
-    // Serialize message field [f_d3]
-    bufferOffset = _serializer.float64(obj.f_d3, buffer, bufferOffset);
+    // Serialize message field [success]
+    bufferOffset = _serializer.float64(obj.success, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -115,8 +115,8 @@ class JointControlReferenceResponse {
     //deserializes a message object of type JointControlReferenceResponse
     let len;
     let data = new JointControlReferenceResponse(null);
-    // Deserialize message field [f_d3]
-    data.f_d3 = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [success]
+    data.success = _deserializer.float64(buffer, bufferOffset);
     return data;
   }
 
@@ -131,13 +131,13 @@ class JointControlReferenceResponse {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '2b0321939446cfc985f2fafeb642d8a2';
+    return 'd4af43e792493e358c51b0904556e73b';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    float64 f_d3
+    float64 success
     
     
     `;
@@ -149,11 +149,11 @@ class JointControlReferenceResponse {
       msg = {};
     }
     const resolved = new JointControlReferenceResponse(null);
-    if (msg.f_d3 !== undefined) {
-      resolved.f_d3 = msg.f_d3;
+    if (msg.success !== undefined) {
+      resolved.success = msg.success;
     }
     else {
-      resolved.f_d3 = 0.0
+      resolved.success = 0.0
     }
 
     return resolved;
@@ -163,6 +163,6 @@ class JointControlReferenceResponse {
 module.exports = {
   Request: JointControlReferenceRequest,
   Response: JointControlReferenceResponse,
-  md5sum() { return 'deb289886d655a183ad8c240ad109d63'; },
+  md5sum() { return '24ecd38e7ff63d6f32f8ba962a5b6ce2'; },
   datatype() { return 'scara_pd_controller/JointControlReference'; }
 };

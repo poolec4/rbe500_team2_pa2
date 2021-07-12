@@ -60,10 +60,10 @@
   "scara_pd_controller/JointControlReferenceRequest")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<JointControlReference-request>)))
   "Returns md5sum for a message object of type '<JointControlReference-request>"
-  "deb289886d655a183ad8c240ad109d63")
+  "24ecd38e7ff63d6f32f8ba962a5b6ce2")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'JointControlReference-request)))
   "Returns md5sum for a message object of type 'JointControlReference-request"
-  "deb289886d655a183ad8c240ad109d63")
+  "24ecd38e7ff63d6f32f8ba962a5b6ce2")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<JointControlReference-request>)))
   "Returns full string definition for message of type '<JointControlReference-request>"
   (cl:format cl:nil "float64 d3_des~%~%~%"))
@@ -82,9 +82,9 @@
 ;//! \htmlinclude JointControlReference-response.msg.html
 
 (cl:defclass <JointControlReference-response> (roslisp-msg-protocol:ros-message)
-  ((f_d3
-    :reader f_d3
-    :initarg :f_d3
+  ((success
+    :reader success
+    :initarg :success
     :type cl:float
     :initform 0.0))
 )
@@ -97,13 +97,13 @@
   (cl:unless (cl:typep m 'JointControlReference-response)
     (roslisp-msg-protocol:msg-deprecation-warning "using old message class name scara_pd_controller-srv:<JointControlReference-response> is deprecated: use scara_pd_controller-srv:JointControlReference-response instead.")))
 
-(cl:ensure-generic-function 'f_d3-val :lambda-list '(m))
-(cl:defmethod f_d3-val ((m <JointControlReference-response>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader scara_pd_controller-srv:f_d3-val is deprecated.  Use scara_pd_controller-srv:f_d3 instead.")
-  (f_d3 m))
+(cl:ensure-generic-function 'success-val :lambda-list '(m))
+(cl:defmethod success-val ((m <JointControlReference-response>))
+  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader scara_pd_controller-srv:success-val is deprecated.  Use scara_pd_controller-srv:success instead.")
+  (success m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <JointControlReference-response>) ostream)
   "Serializes a message object of type '<JointControlReference-response>"
-  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'f_d3))))
+  (cl:let ((bits (roslisp-utils:encode-double-float-bits (cl:slot-value msg 'success))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
@@ -124,7 +124,7 @@
       (cl:setf (cl:ldb (cl:byte 8 40) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
-    (cl:setf (cl:slot-value msg 'f_d3) (roslisp-utils:decode-double-float-bits bits)))
+    (cl:setf (cl:slot-value msg 'success) (roslisp-utils:decode-double-float-bits bits)))
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<JointControlReference-response>)))
@@ -135,16 +135,16 @@
   "scara_pd_controller/JointControlReferenceResponse")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<JointControlReference-response>)))
   "Returns md5sum for a message object of type '<JointControlReference-response>"
-  "deb289886d655a183ad8c240ad109d63")
+  "24ecd38e7ff63d6f32f8ba962a5b6ce2")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'JointControlReference-response)))
   "Returns md5sum for a message object of type 'JointControlReference-response"
-  "deb289886d655a183ad8c240ad109d63")
+  "24ecd38e7ff63d6f32f8ba962a5b6ce2")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<JointControlReference-response>)))
   "Returns full string definition for message of type '<JointControlReference-response>"
-  (cl:format cl:nil "float64 f_d3~%~%~%~%"))
+  (cl:format cl:nil "float64 success~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'JointControlReference-response)))
   "Returns full string definition for message of type 'JointControlReference-response"
-  (cl:format cl:nil "float64 f_d3~%~%~%~%"))
+  (cl:format cl:nil "float64 success~%~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <JointControlReference-response>))
   (cl:+ 0
      8
@@ -152,7 +152,7 @@
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <JointControlReference-response>))
   "Converts a ROS message object to a list"
   (cl:list 'JointControlReference-response
-    (cl:cons ':f_d3 (f_d3 msg))
+    (cl:cons ':success (success msg))
 ))
 (cl:defmethod roslisp-msg-protocol:service-request-type ((msg (cl:eql 'JointControlReference)))
   'JointControlReference-request)

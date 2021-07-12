@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.6.28)  12 JUL 2021 04:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.6.28)  12 JUL 2021 15:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -644,13 +644,13 @@ LaTeX Font Info:    No file T1fvm.fd. on input line 103.
 LaTeX Font Warning: Font shape `T1/fvm/m/n' undefined
 (Font)              using `T1/cmr/m/n' instead on input line 103.
 
-LaTeX Font Info:    Try loading font information for TS1+fvm on input line 107.
+LaTeX Font Info:    Try loading font information for TS1+fvm on input line 109.
 
-LaTeX Font Info:    No file TS1fvm.fd. on input line 107.
+LaTeX Font Info:    No file TS1fvm.fd. on input line 109.
 
 LaTeX Font Warning: Font shape `TS1/fvm/m/n' undefined
 (Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textasteriskcentered' on input line 107.
+(Font)              for symbol `textasteriskcentered' on input line 109.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -668,32 +668,41 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 185.
+<figures/link_3_pd_plot1.png, id=85, 433.62pt x 319.50948pt>
+File: figures/link_3_pd_plot1.png Graphic file (type png)
+<use figures/link_3_pd_plot1.png>
+Package pdftex.def Info: figures/link_3_pd_plot1.png  used on input line 183.
+(pdftex.def)             Requested size: 382.12697pt x 281.57874pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 186--188
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 197.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 22.48724pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 185.
+[3 <./figures/link_3_pd_plot1.png (PNG copy)>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 197.
  (./RBE500_PA2_Team 2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 185.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 185.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 197.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 197.
 Package rerunfilecheck Info: File `"RBE500_PA2_Team 2".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 185.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 197.
  ) 
 Here is how much of TeX's memory you used:
- 11188 strings out of 494923
- 165351 string characters out of 6180742
- 383406 words of memory out of 5000000
- 14303 multiletter control sequences out of 15000+600000
+ 11206 strings out of 494923
+ 165665 string characters out of 6180742
+ 404406 words of memory out of 5000000
+ 14315 multiletter control sequences out of 15000+600000
  9060 words of font info for 28 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  36i,12n,56p,441b,1988s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -708,10 +717,10 @@ pk> </home/chris/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.60
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on "RBE500_PA2_Team 2.pdf" (3 pages, 102193 bytes).
+Output written on "RBE500_PA2_Team 2.pdf" (3 pages, 118516 bytes).
 PDF statistics:
- 279 PDF objects out of 1000 (max. 8388607)
- 125 compressed objects within 2 object streams
- 62 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 284 PDF objects out of 1000 (max. 8388607)
+ 131 compressed objects within 2 object streams
+ 67 named destinations out of 1000 (max. 500000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

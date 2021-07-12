@@ -16,10 +16,13 @@ from gazebo_msgs.srv import GetJointProperties
 from scara_pd_controller.srv import JointControlReference
 
 debug = True
+print_to_file = True
+
+file1 = open("pd_control_plot.txt","w")
 
 d3 = 0.0
 d3_des = 0.0
-d3_old = 0.0
+E_old = 0.0
 
 kp = 1100.0
 kd = 35.0
@@ -37,21 +40,27 @@ def rot_to_euler(R): # converts a 3x3 rotation matrix to ZYZ Euler angles
 	
 	return eangles
 
-def pd_control(joint, pos_cur, pos_old, pos_des, kp, kd):
+def pd_control(joint, pos_cur, pos_des, kp, kd):
+	global E_old
 
-	p_err = pos_des - pos_cur
-	d_err = (pos_old - pos_cur)*rate
-	f = -(kp*p_err + kd*d_err)
+	E = pos_des - pos_cur
+	d_err = (E - E_old)/(1/rate)
+	f = -(kp*E + kd*d_err)
 
 	if debug == True:
-		print("\np_err = %f,  d_err = %f" % (p_err, d_err))
-		print("\npos_cur = %f, pos_old = %f" % (pos_cur, pos_old))
+		print("\nerr = %f,  d_err = %f" % (E, d_err))
+		print("\npos_des = %f, pos_cur = %f" % (pos_des, pos_cur))
 		print("\nSending joint force f = [%f]" % (f)) # printing calculated values to terminal
 
 	je_service = rospy.ServiceProxy('/gazebo/apply_joint_effort', ApplyJointEffort)
 	zero_time = rospy.Time()
 	tick = rospy.Duration(0, int((1/rate)*10**9))
 	je_service(joint, f, zero_time, tick)
+
+	if print_to_file == True:
+		file1.write("%f,%f,%f,%f\n" % (pos_cur, pos_des,f,1/rate))
+
+	E_old = E 
 
 	return f
 
@@ -67,10 +76,8 @@ def request_joint_status(joint):
 	if debug == True:
 		print("\n\nReceived joint position: [%f] (d3) (meters)" % (d3)) # printing received data to terminal
 
-	pd_control('joint5', d3, d3_old, d3_des, kp, kd)
+	pd_control('joint5', d3, d3_des, kp, kd)
 	
-	d3_old = d3
-
 	return resp
 
 def service_handle(data):

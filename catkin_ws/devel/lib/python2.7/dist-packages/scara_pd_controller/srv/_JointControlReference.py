@@ -121,13 +121,13 @@ import struct
 
 
 class JointControlReferenceResponse(genpy.Message):
-  _md5sum = "2b0321939446cfc985f2fafeb642d8a2"
+  _md5sum = "d4af43e792493e358c51b0904556e73b"
   _type = "scara_pd_controller/JointControlReferenceResponse"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """float64 f_d3
+  _full_text = """float64 success
 
 """
-  __slots__ = ['f_d3']
+  __slots__ = ['success']
   _slot_types = ['float64']
 
   def __init__(self, *args, **kwds):
@@ -138,7 +138,7 @@ class JointControlReferenceResponse(genpy.Message):
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       f_d3
+       success
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -147,10 +147,10 @@ class JointControlReferenceResponse(genpy.Message):
     if args or kwds:
       super(JointControlReferenceResponse, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
-      if self.f_d3 is None:
-        self.f_d3 = 0.
+      if self.success is None:
+        self.success = 0.
     else:
-      self.f_d3 = 0.
+      self.success = 0.
 
   def _get_types(self):
     """
@@ -164,7 +164,7 @@ class JointControlReferenceResponse(genpy.Message):
     :param buff: buffer, ``StringIO``
     """
     try:
-      _x = self.f_d3
+      _x = self.success
       buff.write(_get_struct_d().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
@@ -180,7 +180,7 @@ class JointControlReferenceResponse(genpy.Message):
       end = 0
       start = end
       end += 8
-      (self.f_d3,) = _get_struct_d().unpack(str[start:end])
+      (self.success,) = _get_struct_d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -193,7 +193,7 @@ class JointControlReferenceResponse(genpy.Message):
     :param numpy: numpy python module
     """
     try:
-      _x = self.f_d3
+      _x = self.success
       buff.write(_get_struct_d().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
@@ -210,7 +210,7 @@ class JointControlReferenceResponse(genpy.Message):
       end = 0
       start = end
       end += 8
-      (self.f_d3,) = _get_struct_d().unpack(str[start:end])
+      (self.success,) = _get_struct_d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -227,6 +227,6 @@ def _get_struct_d():
     return _struct_d
 class JointControlReference(object):
   _type          = 'scara_pd_controller/JointControlReference'
-  _md5sum = 'deb289886d655a183ad8c240ad109d63'
+  _md5sum = '24ecd38e7ff63d6f32f8ba962a5b6ce2'
   _request_class  = JointControlReferenceRequest
   _response_class = JointControlReferenceResponse

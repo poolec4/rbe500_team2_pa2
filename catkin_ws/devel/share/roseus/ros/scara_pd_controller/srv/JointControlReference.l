@@ -57,37 +57,37 @@
 
 (defclass scara_pd_controller::JointControlReferenceResponse
   :super ros::object
-  :slots (_f_d3 ))
+  :slots (_success ))
 
 (defmethod scara_pd_controller::JointControlReferenceResponse
   (:init
    (&key
-    ((:f_d3 __f_d3) 0.0)
+    ((:success __success) 0.0)
     )
    (send-super :init)
-   (setq _f_d3 (float __f_d3))
+   (setq _success (float __success))
    self)
-  (:f_d3
-   (&optional __f_d3)
-   (if __f_d3 (setq _f_d3 __f_d3)) _f_d3)
+  (:success
+   (&optional __success)
+   (if __success (setq _success __success)) _success)
   (:serialization-length
    ()
    (+
-    ;; float64 _f_d3
+    ;; float64 _success
     8
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; float64 _f_d3
-       (sys::poke _f_d3 (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _success
+       (sys::poke _success (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; float64 _f_d3
-     (setq _f_d3 (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _success
+     (setq _success (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;;
    self)
   )
@@ -96,7 +96,7 @@
   :super ros::object
   :slots ())
 
-(setf (get scara_pd_controller::JointControlReference :md5sum-) "deb289886d655a183ad8c240ad109d63")
+(setf (get scara_pd_controller::JointControlReference :md5sum-) "24ecd38e7ff63d6f32f8ba962a5b6ce2")
 (setf (get scara_pd_controller::JointControlReference :datatype-) "scara_pd_controller/JointControlReference")
 (setf (get scara_pd_controller::JointControlReference :request) scara_pd_controller::JointControlReferenceRequest)
 (setf (get scara_pd_controller::JointControlReference :response) scara_pd_controller::JointControlReferenceResponse)
@@ -104,26 +104,26 @@
 (defmethod scara_pd_controller::JointControlReferenceRequest
   (:response () (instance scara_pd_controller::JointControlReferenceResponse :init)))
 
-(setf (get scara_pd_controller::JointControlReferenceRequest :md5sum-) "deb289886d655a183ad8c240ad109d63")
+(setf (get scara_pd_controller::JointControlReferenceRequest :md5sum-) "24ecd38e7ff63d6f32f8ba962a5b6ce2")
 (setf (get scara_pd_controller::JointControlReferenceRequest :datatype-) "scara_pd_controller/JointControlReferenceRequest")
 (setf (get scara_pd_controller::JointControlReferenceRequest :definition-)
       "float64 d3_des
 ---
-float64 f_d3
+float64 success
 
 ")
 
-(setf (get scara_pd_controller::JointControlReferenceResponse :md5sum-) "deb289886d655a183ad8c240ad109d63")
+(setf (get scara_pd_controller::JointControlReferenceResponse :md5sum-) "24ecd38e7ff63d6f32f8ba962a5b6ce2")
 (setf (get scara_pd_controller::JointControlReferenceResponse :datatype-) "scara_pd_controller/JointControlReferenceResponse")
 (setf (get scara_pd_controller::JointControlReferenceResponse :definition-)
       "float64 d3_des
 ---
-float64 f_d3
+float64 success
 
 ")
 
 
 
-(provide :scara_pd_controller/JointControlReference "deb289886d655a183ad8c240ad109d63")
+(provide :scara_pd_controller/JointControlReference "24ecd38e7ff63d6f32f8ba962a5b6ce2")
 
 

@@ -24,17 +24,17 @@ struct JointControlReferenceResponse_
   typedef JointControlReferenceResponse_<ContainerAllocator> Type;
 
   JointControlReferenceResponse_()
-    : f_d3(0.0)  {
+    : success(0.0)  {
     }
   JointControlReferenceResponse_(const ContainerAllocator& _alloc)
-    : f_d3(0.0)  {
+    : success(0.0)  {
   (void)_alloc;
     }
 
 
 
-   typedef double _f_d3_type;
-  _f_d3_type f_d3;
+   typedef double _success_type;
+  _success_type success;
 
 
 
@@ -65,7 +65,7 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::scara_pd_controller::JointControlReferenceResponse_<ContainerAllocator1> & lhs, const ::scara_pd_controller::JointControlReferenceResponse_<ContainerAllocator2> & rhs)
 {
-  return lhs.f_d3 == rhs.f_d3;
+  return lhs.success == rhs.success;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -122,12 +122,12 @@ struct MD5Sum< ::scara_pd_controller::JointControlReferenceResponse_<ContainerAl
 {
   static const char* value()
   {
-    return "2b0321939446cfc985f2fafeb642d8a2";
+    return "d4af43e792493e358c51b0904556e73b";
   }
 
   static const char* value(const ::scara_pd_controller::JointControlReferenceResponse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x2b0321939446cfc9ULL;
-  static const uint64_t static_value2 = 0x85f2fafeb642d8a2ULL;
+  static const uint64_t static_value1 = 0xd4af43e792493e35ULL;
+  static const uint64_t static_value2 = 0x8c51b0904556e73bULL;
 };
 
 template<class ContainerAllocator>
@@ -146,7 +146,7 @@ struct Definition< ::scara_pd_controller::JointControlReferenceResponse_<Contain
 {
   static const char* value()
   {
-    return "float64 f_d3\n"
+    return "float64 success\n"
 "\n"
 ;
   }
@@ -166,7 +166,7 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.f_d3);
+      stream.next(m.success);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -185,8 +185,8 @@ struct Printer< ::scara_pd_controller::JointControlReferenceResponse_<ContainerA
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::scara_pd_controller::JointControlReferenceResponse_<ContainerAllocator>& v)
   {
-    s << indent << "f_d3: ";
-    Printer<double>::stream(s, indent + "  ", v.f_d3);
+    s << indent << "success: ";
+    Printer<double>::stream(s, indent + "  ", v.success);
   }
 };
 
