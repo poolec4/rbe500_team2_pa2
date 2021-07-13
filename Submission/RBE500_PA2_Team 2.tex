@@ -40,7 +40,7 @@
 	\begin{itemize}
 		\item New package:
 		\begin{itemize}
-			\item The \texttt{scara\_pd\_controller} package implements a proportional and derivative controller for joint 3 (prismatic joint). The controller functions by reading the current joint position using the \\ \texttt{gazebo/get\_joint\_properties} service, calculating the necessary input into the joint, and applying the input force using the \texttt{gazebo/apply\_joint\_effort} service.
+			\item The \texttt{scara\_pd\_controller} package implements a proportional and derivative controller for joint 5 (prismatic joint ($d_3$)). The controller functions by reading the current joint position using the \\ \texttt{gazebo/get\_joint\_properties} service, calculating the necessary input into the joint, and applying the input force using the \texttt{gazebo/apply\_joint\_effort} service. The controller receives the desired reference position using a custom service message under \texttt{scara/JointControlReference}.
 		\end{itemize}
 		
 		\item Old packages used (from PA \#1):
@@ -50,15 +50,104 @@
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
+\vspace{0.5cm}
 
 \begin{enumerate}
-	\item Fix all of the joints except the last joint by changing the joint type field of the corresponding joints to "fixed" in the robot description file.
-	
-	The following changes were made to the XACRO file:
-	
-	...
-	
-	...
+\item Fix all of the joints except the last joint (joint 5) by changing the joint type field of the corresponding joints to "fixed" in the robot description file.
+\\
+
+The following changes were made to the XACRO file:
+
+a. Change joint 1 and joint 3 to 'Fixed' joints (joints 2 and 4 are already set to type 'Fixed')
+\begin{lstlisting}[style=Matlab-editor,basicstyle=\mlttfamily,escapechar=`]
+<joint name="joint1" type="fixed">
+<parent link="link1"/>
+<child link="link2"/>
+<origin xyz="0 0 ${height1 - axel_offset}" rpy="0 0 1.570796"/>
+</joint>
+...
+<joint name="joint3" type="fixed">
+<parent link="link3"/>
+<child link="link4"/>
+<origin xyz="0 1.5 2.5" rpy="1.57 0 0"/>
+</joint>
+
+\end{lstlisting} 
+
+b. Remove all collision/inertial properties from links 1-4, (found to cause physics issues in simulation) (Example shown for link 3)
+\begin{lstlisting}[style=Matlab-editor,basicstyle=\mlttfamily,escapechar=`]
+<link name="link3">
+(-)  <collision>
+(-)      <origin xyz="0 0 1.25" rpy="0 0 0"/>
+(-)      <geometry>
+(-)        <box size="${width} ${width} 2.5"/>
+(-)      </geometry>
+(-)    </collision>
+<visual>
+<origin xyz="0 0 1.25" rpy="0 0 0"/>
+<geometry>
+<box size="${width} ${width} 2.5"/>
+</geometry>
+<material name="orange"/>
+</visual>
+(-)    <inertial>
+(-)      <origin xyz="0 0 1.25" rpy="0 0 0"/>
+(-)      <mass value="${mass}"/>
+(-)      <inertia
+(-)         ixx="${mass / 12.0 * (width*width + height3*height3)}" ixy="0.0" ixz="0.0"
+(-)         iyy="${mass / 12.0 * (height3*height3 + width*width)}" iyz="0.0"
+(-)         izz="${mass / 12.0 * (width*width + width*width)}"/>
+(-)    </inertial>
+</link>
+
+(+)  <joint name="joint3" type="fixed">
+(-)  <joint name="joint3" type="revolute">
+<parent link="link3"/>
+<child link="link4"/>
+<origin xyz="0 1.5 2.5" rpy="1.57 0 0"/>
+(-)    <axis xyz="0 0 1"/>
+(-)   <limit effort="100" lower="-1.57" upper="1.57" velocity="1"/>
+(-)    <dynamics damping="0.7"/>
+</joint>
+\end{lstlisting} 
+
+c. Remove all <transmission> instances from URDF file
+\begin{lstlisting}[style=Matlab-editor,basicstyle=\mlttfamily,escapechar=`]    
+(-)  <transmission name="tran1">
+(-)    <type>transmission_interface/SimpleTransmission</type>
+(-)    <joint name="joint1">
+(-)      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+(-)    </joint>
+(-)    <actuator name="motor1">
+(-)      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+(-)      <mechanicalReduction>1</mechanicalReduction>
+(-)    </actuator>
+(-)  </transmission>
+(-)
+(-)  <transmission name="tran2">
+(-)    <type>transmission_interface/SimpleTransmission</type>
+(-)    <joint name="joint3">
+(-)      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+(-)    </joint>
+(-)    <actuator name="motor2">
+(-)      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+(-)      <mechanicalReduction>1</mechanicalReduction>
+(-)    </actuator>
+(-)  </transmission>
+(-)
+(-)  <transmission name="tran3">
+(-)    <type>transmission_interface/SimpleTransmission</type>
+(-)    <joint name="joint5">
+(-)      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+(-)    </joint>
+(-)    <actuator name="motor3">
+(-)      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+(-)      <mechanicalReduction>1</mechanicalReduction>
+(-)    </actuator>
+(-)  </transmission>
+\end{lstlisting} 
+
+	\vspace{0.65cm}
 	
 	\item Write a position controller node.
 	
@@ -183,7 +272,7 @@ def service_handle(data):
 		\includegraphics[width=0.75\textwidth]{figures/link_3_pd_plot1.png}
 	\end{figure}
 	
-	From the above plot, we can see that the position of the link is approaching the reference position with limited overshoot (due to the tuning of the derivative term). There is a slight steady-state error due to the absence of an integral term. The addition of an integral term would accumulate that steady-state error and bring the current link position closer to the reference. 
+	From the PD plot, we can see that the position of the link is approaching the reference position with limited overshoot (due to the tuning of the derivative term). There is a slight steady-state error due to the absence of an integral term. The addition of an integral term would accumulate that steady-state error and bring the current link position closer to the reference. 
 	\\
 	
 	The resulting gains are below:
