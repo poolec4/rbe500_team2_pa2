@@ -1,8 +1,0 @@
-prefix=/home/chris/rbe500_team2_pa2/catkin_ws/install
-
-Name: scara_gazebo
-Description: Description of scara_gazebo
-Version: 0.1.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

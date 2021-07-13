@@ -1,8 +1,0 @@
-prefix=/home/chris/rbe500_team2_pa2/catkin_ws/devel
-
-Name: scara_forward_kinematics
-Description: Description of scara_forward_kinematics
-Version: 0.0.0
-Cflags: -I/home/chris/rbe500_team2_pa2/catkin_ws/devel/include
-Libs: -L${prefix}/lib 
-Requires: 
